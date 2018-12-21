@@ -33,10 +33,6 @@ dependencies:
         - "org.grails:grails-logging"
     testCompile:
         - "org.grails:grails-plugin-testing"    
-        - "org.grails.plugins:geb" 
-    testRuntime:
-        - 'org.seleniumhq.selenium:selenium-htmlunit-driver:2.47.1'
-        - 'net.sourceforge.htmlunit:htmlunit:2.18'        
         - "org.grails.plugins:grails-micronaut-http-client"
 
 
