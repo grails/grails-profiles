@@ -34,7 +34,3 @@ dependencies:
     testCompile:
         - "org.grails:grails-plugin-testing"    
         - "org.grails.plugins:grails-micronaut-http-client"
-
-
-
-
