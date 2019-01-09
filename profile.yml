@@ -33,4 +33,4 @@ dependencies:
         - "org.grails:grails-logging"
     testCompile:
         - "org.grails:grails-plugin-testing"
-        - "io.micronaut:micronaut-http-client:1.0.2"
+        - "io.micronaut:micronaut-http-client:1.0.3"
