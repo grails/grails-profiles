@@ -9,7 +9,8 @@ ext {
   profilesSlug = 'grails-profiles'
   profiles = [
           'base',
-          'web',
+          'rest-api',
+          'angular',
   ]
 }
 
