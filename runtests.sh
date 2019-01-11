@@ -8,9 +8,9 @@ echo "Starting client and server"
 ./gradlew bootRun -parallel --console=plain &
 PID1=$!
 
-echo "Waiting 50 seconds  for client and server to start"
+echo "Waiting 120 seconds  for client and server to start"
 
-sleep 50
+sleep 120
 
 echo "Executing tests"
 
