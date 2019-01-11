@@ -35,7 +35,7 @@ sdk install grails dev /home/travis/build/grails-profiles-tests/react/build/grai
 
 sdk install grails
 
-sdk use grails 3.3.3
+sdk use grails dev
 
 grails --version
 
