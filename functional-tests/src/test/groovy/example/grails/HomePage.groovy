@@ -6,7 +6,7 @@ class HomePage extends Page {
 
     static url = '/#/'
 
-    static at = { title.contains('Grails') }
+    static at = { title.contains('client') }
 
     static content = {
         controllers(wait: true) { $('#controllers li') }
