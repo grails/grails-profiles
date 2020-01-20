@@ -32,5 +32,6 @@ dependencies:
         - "org.grails:grails-web-boot"
         - "org.grails:grails-logging"
     testCompile:
-        - "org.grails:grails-plugin-testing"
+        - "org.grails:grails-web-testing-support"
+        - "org.grails:grails-gorm-testing-support"
         - "io.micronaut:micronaut-http-client:1.0.3"
