@@ -8,17 +8,19 @@ echo "Starting client and server"
 ./gradlew bootRun -parallel --console=plain &
 PID1=$!
 
-echo "Waiting 50 seconds  for client and server to start"
+echo "Waiting 100 seconds  for client and server to start"
 
-sleep 50
+sleep 100
 
-echo "Executing tests"
+echo "Executing tests with chrome"
 
 ./gradlew --rerun-tasks -Dgeb.env=chromeHeadless functional-tests:test --console=plain || EXIT_STATUS=$?
 
 if [ $EXIT_STATUS -ne 0 ]; then
   exit $EXIT_STATUS
 fi
+
+echo "Executing tests with firefox"
 
 ./gradlew --rerun-tasks -Dgeb.env=firefoxHeadless functional-tests:test --console=plain || EXIT_STATUS=$?
 
