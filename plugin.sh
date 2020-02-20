@@ -61,12 +61,6 @@ if [ $EXIT_STATUS -ne 0 ]; then
   exit $EXIT_STATUS
 fi
 
-./grailsw create-service BookService || EXIT_STATUS=$?
-
-if [ $EXIT_STATUS -ne 0 ]; then
-  exit $EXIT_STATUS
-fi
-
 ./grailsw create-unit-test Foo || EXIT_STATUS=$?
 
 if [ $EXIT_STATUS -ne 0 ]; then
