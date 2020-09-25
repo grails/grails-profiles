@@ -41,4 +41,6 @@ grails --version
 
 grails create-app demo.web-plugin --profile=web-plugin
 
+cat "testingSupport.version=2.2.0.M2" >> web-plugin/gradle.properties
+
 exit $EXIT_STATUS
