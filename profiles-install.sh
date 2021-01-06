@@ -9,7 +9,7 @@ source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 echo sdkman_auto_answer=true > ~/.sdkman/etc/config
 
-source "/home/travis/.sdkman/bin/sdkman-init.sh"
+source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 ./gradlew build --console=plain || EXIT_STATUS=$?
 
