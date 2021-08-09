@@ -45,4 +45,4 @@ dependencies:
     - scope: testCompile
       coords: "org.grails:grails-gorm-testing-support"
     - scope: testCompile
-      coords: "io.micronaut:micronaut-http-client:1.0.3"
+      coords: "io.micronaut:micronaut-http-client:2.5.11"
