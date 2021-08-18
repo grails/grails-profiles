@@ -30,7 +30,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '8'
-          distributiong: 'adopt'
+          distribution: 'adopt'
       - name: Install Profiles
         run: |
           [ -f ./profiles-install.sh ] && ./profiles-install.sh
@@ -38,7 +38,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: ${{ matrix.java }}
-          distributiong: 'adopt'
+          distribution: 'adopt'
       - name: Run Tests
         run: |
           [ -f ./web.sh ] && ./web.sh
