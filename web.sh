@@ -3,10 +3,6 @@ set -e
 
 EXIT_STATUS=0
 
-grails --version
-
-grails create-app demo.webapp
-
 mkdir multi
 
 mv webapp multi/webapp
