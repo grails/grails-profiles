@@ -37,8 +37,4 @@ sdk install grails
 
 sdk use grails dev
 
-grails --version
-
-grails create-app demo.web
-
 exit $EXIT_STATUS

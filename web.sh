@@ -3,15 +3,19 @@ set -e
 
 EXIT_STATUS=0
 
+grails --version
+
+grails create-app demo.webapp
+
 mkdir multi
 
-mv web multi/web
+mv webapp multi/webapp
 
-mv multi/web/gradle multi/gradle
+mv multi/webapp/gradle multi/gradle
 
-mv multi/web/gradlew multi/gradlew
+mv multi/webapp/gradlew multi/gradlew
 
-mv multi/web/gradlew.bat multi/gradlew.bat
+mv multi/webapp/gradlew.bat multi/gradlew.bat
 
 cp -r functional-tests multi/
 
@@ -21,9 +25,9 @@ cd multi
 
 touch settings.gradle
 
-echo "include 'web', 'functional-tests'" >> settings.gradle
+echo "include 'webapp', 'functional-tests'" >> settings.gradle
 
-cd web
+cd webapp
 
 ./grailsw assemble || EXIT_STATUS=$? 
 
@@ -149,7 +153,7 @@ if [ $EXIT_STATUS -ne 0 ]; then
   exit $EXIT_STATUS
 fi
 
-cd multi/web
+cd multi/webapp
 
 ./grailsw test-app || EXIT_STATUS=$? 
 
