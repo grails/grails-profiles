@@ -29,9 +29,9 @@ cd ../../
 
 mkdir -p $HOME/.grails/wrapper
 
-cp $GITHUB_WORKSPACE/web/build/grails-wrapper/wrapper/build/libs/grails5-wrapper-3.0.0-SNAPSHOT.jar $HOME/.grails/wrapper/grails5-wrapper.jar
+cp $GITHUB_WORKSPACE/build/grails-wrapper/wrapper/build/libs/grails5-wrapper-3.0.0-SNAPSHOT.jar $HOME/.grails/wrapper/grails5-wrapper.jar
 
-sdk install grails dev $GITHUB_WORKSPACE/web/build/grails-core
+sdk install grails dev $GITHUB_WORKSPACE/build/grails-core
 
 sdk install grails
 
