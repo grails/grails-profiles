@@ -5,12 +5,14 @@ buildscript {
     }
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsGradlePluginVersion"
+        classpath 'io.spring.gradle:dependency-management-plugin'
     }
 }
 
 apply plugin: "idea"
 apply plugin: "org.grails.grails-profile"
 apply plugin: "org.grails.internal.grails-profile-publish"
+apply plugin: "io.spring.dependency-management"
 
 group 'org.grails.profiles'
 version project.projectVersion
@@ -29,5 +31,5 @@ grailsPublish {
 }    
 
 dependencies {
-    runtime "org.grails.profiles:base:5.0.6"
+    profileRuntimeOnly "org.grails.profiles:base:$baseVersion"
 }
