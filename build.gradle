@@ -4,17 +4,18 @@ buildscript {
         maven { url "https://repo.grails.org/grails/core" }
     }
     dependencies {
-        classpath "org.grails:grails-gradle-plugin:$grailsVersion"
+        classpath "org.grails:grails-gradle-plugin:$grailsGradlePluginVersion"
+        classpath 'io.spring.gradle:dependency-management-plugin'
     }
 }
 
 apply plugin: "idea"
 apply plugin: "org.grails.grails-profile"
-apply plugin: "org.grails.grails-profile-publish"
+apply plugin: "org.grails.internal.grails-profile-publish"
+apply plugin: "io.spring.dependency-management"
 
 group 'org.grails.profiles'
-version '4.0.2.BUILD-SNAPSHOT'
-//version '4.0.2'
+version project.projectVersion
 
 repositories {
     mavenLocal()
@@ -31,6 +32,6 @@ grailsPublish {
 }    
 
 dependencies {
-    runtime "org.grails.profiles:plugin:$pluginProfileVersion"
-    runtime "org.grails.profiles:web:$webProfileVersion"
+    profileRuntimeOnly "org.grails.profiles:plugin:$pluginProfileVersion"
+    profileRuntimeOnly "org.grails.profiles:web:$webProfileVersion"
 }
