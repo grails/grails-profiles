@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Check if it has release drafter config file 
+      - name: Check if it has release drafter config file
         id: check_release_drafter
         run: |
           has_release_drafter=$([ -f .github/release-drafter.yml ] && echo "true" || echo "false")
