@@ -55,6 +55,6 @@ jobs:
         if: success()
         uses: micronaut-projects/github-actions/post-release@master
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          # token: ${{ secrets.GITHUB_TOKEN }}
         env:
           SNAPSHOT_SUFFIX: -SNAPSHOT
