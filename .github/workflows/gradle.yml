@@ -35,7 +35,8 @@ jobs:
       - name: Publish to repo.grails.org
         if: success() && github.event_name == 'push' && matrix.java == '17'
         env:
-          ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
-          ARTIFACTORY_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}
+          MAVEN_PUBLISH_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
+          MAVEN_PUBLISH_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}
+          MAVEN_PUBLISH_URL: 'https://repo.grails.org/grails/libs-snapshots-local'
         run: |
           ./gradlew publish
