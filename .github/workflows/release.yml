@@ -37,17 +37,17 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish to Sonatype OSSRH
         env:
-          SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
-          SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
-          SONATYPE_NEXUS_URL: ${{ secrets.SONATYPE_NEXUS_URL }}
-          SONATYPE_STAGING_PROFILE_ID: ${{ secrets.SONATYPE_STAGING_PROFILE_ID }}
+          NEXUS_PUBLISH_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
+          NEXUS_PUBLISH_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
+          NEXUS_PUBLISH_URL: ${{ secrets.SONATYPE_NEXUS_URL }}
+          NEXUS_PUBLISH_STAGING_PROFILE_ID: ${{ secrets.SONATYPE_STAGING_PROFILE_ID }}
           SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
           SIGNING_PASSPHRASE: ${{ secrets.SIGNING_PASSPHRASE }}
-          SECRING_FILE: ${{ secrets.SECRING_FILE }}
+          SECRING_FILE: "${{ github.workspace }}/secring.gpg"
         run: |
           echo $SECRING_FILE | base64 -d > secring.gpg
           echo "Publishing Artifacts"
-          (set -x; ./gradlew -Psigning.secretKeyRingFile="${GITHUB_WORKSPACE}/secring.gpg" publishToSonatype closeAndReleaseSonatypeStagingRepository --no-daemon)
+          (set -x; ./gradlew publishToSonatype closeAndReleaseSonatypeStagingRepository --no-daemon)
           (set -x; ./gradlew assemble --no-daemon)
       - name: Export Gradle Properties
         uses: micronaut-projects/github-actions/export-gradle-properties@master
