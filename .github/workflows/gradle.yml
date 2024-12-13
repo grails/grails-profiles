@@ -32,7 +32,7 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: ${{ matrix.java }}
-      - name: Run Assemble
+      - name: Run Build
         if: success()
         run: ./gradlew build
       - name: Publish to repo.grails.org
