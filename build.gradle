@@ -13,7 +13,7 @@ buildscript {
 
 apply plugin: "idea"
 apply plugin: "org.grails.grails-profile"
-apply plugin: "org.grails.internal.grails-profile-publish"
+apply plugin: "org.grails.grails-profile-publish"
 apply plugin: "io.spring.dependency-management"
 
 group 'org.grails.profiles'
@@ -26,7 +26,6 @@ repositories {
 }
 
 grailsPublish {
-    userOrg = 'grails'  
     githubSlug = 'grails-profiles/web-plugin'
     license = 'Apache-2.0'
     title = "Grails Web Plugin Profile"
