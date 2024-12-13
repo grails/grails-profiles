@@ -17,6 +17,8 @@ apply plugin: "io.spring.dependency-management"
 group 'org.grails.profiles'
 version project.projectVersion
 
+ext.mavenPublishUrl = 'https://repo.grails.org/grails/libs-snapshots-local'
+
 apply plugin: "org.grails.grails-profile-publish"
 grailsPublish {
     githubSlug = 'grails-profiles/vue'
