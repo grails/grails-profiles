@@ -13,7 +13,6 @@ buildscript {
 
 apply plugin: "idea"
 apply plugin: "org.grails.grails-profile"
-apply plugin: "org.grails.internal.grails-profile-publish"
 apply plugin: "io.spring.dependency-management"
 
 group 'org.grails.profiles'
@@ -25,8 +24,8 @@ repositories {
     // mavenLocal()  // for local testing, do not commit uncommented
 }
 
+apply plugin: "org.grails.grails-profile-publish"
 grailsPublish {
-	userOrg = 'grails'  
 	githubSlug = 'grails-profiles/rest-api-plugin'
 	license = 'Apache-2.0'
 	title = "Grails REST API Plugin Profile"
