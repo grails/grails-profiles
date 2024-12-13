@@ -1,6 +1,5 @@
 buildscript {
     repositories {
-        mavenLocal()  // for local testing, do not commit uncommented
         gradlePluginPortal()
         mavenCentral()
         maven { url "https://repo.grails.org/grails/core" }
