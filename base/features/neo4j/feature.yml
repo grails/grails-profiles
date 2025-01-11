@@ -1,0 +1,4 @@
+description: Adds GORM for Neo4j to the project
+dependencies:
+    - scope: compile
+      coords: 'org.grails.plugins:neo4j'
