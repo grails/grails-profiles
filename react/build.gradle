@@ -1,0 +1,39 @@
+buildscript {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+        maven { url "https://repo.grails.org/grails/core" }
+        // mavenLocal()  // for local testing, do not commit uncommented
+    }
+    dependencies {
+        classpath "org.grails:grails-gradle-plugin:$grailsGradlePluginVersion"
+        classpath 'io.spring.gradle:dependency-management-plugin'
+    }
+}
+
+apply plugin: "org.grails.grails-profile"
+apply plugin: "io.spring.dependency-management"
+
+ext.mavenPublishUrl = 'https://repo.grails.org/grails/libs-snapshots-local'
+
+group 'org.grails.profiles'
+version project.projectVersion
+
+apply plugin: "org.grails.grails-profile-publish"
+grailsPublish {
+    githubSlug = 'grails-profiles/react'
+    license = 'Apache-2.0'
+    title = "React Profile"
+    desc = "A profile for creating Grails applications with React"
+    developers = [zacharyklein:"Zachary Klein"]
+}
+
+repositories {
+    mavenCentral()
+    maven { url "https://repo.grails.org/grails/core" }
+    // mavenLocal()  // for local testing, do not commit uncommented
+}
+
+dependencies {
+    profileRuntimeOnly "org.grails.profiles:rest-api:$restApiProfileVersion"
+}
