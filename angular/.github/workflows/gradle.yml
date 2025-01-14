@@ -1,0 +1,40 @@
+name: Java CI
+on:
+  push:
+    branches:
+      - '[0-9]+.[0-9]+.x'
+  pull_request:
+    branches:
+      - '[0-9]+.[0-9]+.x'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java: ['17']
+    env:
+      WORKSPACE: ${{ github.workspace }}
+      GRADLE_OPTS: -Xmx1500m -Dfile.encoding=UTF-8
+      MAVEN_PUBLISH_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
+      MAVEN_PUBLISH_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}
+      MAVEN_PUBLISH_URL: 'https://repo.grails.org/grails/libs-snapshots-local'
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: ${{ matrix.java }}
+          distribution: 'adopt'
+      - name: Run Assemble
+        if: success() && matrix.java == '17'
+        run: ./gradlew assemble
+      - name: Publish to repo.grails.org
+        if: success() && github.event_name == 'push' && matrix.java == '17'
+        run: |
+          ./gradlew publish
