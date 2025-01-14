@@ -1,25 +1,15 @@
-buildscript {
-    repositories {
-        gradlePluginPortal()
-        mavenCentral()
-        maven { url "https://repo.grails.org/grails/core" }
-        // mavenLocal()  // for local testing, do not commit uncommented
-    }
-    dependencies {
-        classpath "org.grails:grails-gradle-plugin:$grailsGradlePluginVersion"
-        classpath 'io.spring.gradle:dependency-management-plugin'
-    }
+plugins {
+    id "io.spring.dependency-management"
+    id "java"
 }
 
-apply plugin: "idea"
-apply plugin: "org.grails.grails-profile"
-apply plugin: "io.spring.dependency-management"
+//apply plugin: "org.grails.grails-profile"
 
 group 'org.grails.profiles'
 version project.projectVersion
 
 dependencies {
-
+    implementation "org.apache.groovy:groovy-jmx:$groovyVersion"
 }
 
 apply plugin: "org.grails.grails-profile-publish"

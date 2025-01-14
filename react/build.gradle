@@ -1,18 +1,4 @@
-buildscript {
-    repositories {
-        gradlePluginPortal()
-        mavenCentral()
-        maven { url "https://repo.grails.org/grails/core" }
-        // mavenLocal()  // for local testing, do not commit uncommented
-    }
-    dependencies {
-        classpath "org.grails:grails-gradle-plugin:$grailsGradlePluginVersion"
-        classpath 'io.spring.gradle:dependency-management-plugin'
-    }
-}
-
 apply plugin: "org.grails.grails-profile"
-apply plugin: "io.spring.dependency-management"
 
 ext.mavenPublishUrl = 'https://repo.grails.org/grails/libs-snapshots-local'
 
@@ -28,12 +14,6 @@ grailsPublish {
     developers = [zacharyklein:"Zachary Klein"]
 }
 
-repositories {
-    mavenCentral()
-    maven { url "https://repo.grails.org/grails/core" }
-    // mavenLocal()  // for local testing, do not commit uncommented
-}
-
 dependencies {
-    profileRuntimeOnly "org.grails.profiles:rest-api:$restApiProfileVersion"
+    profileRuntimeOnly project(":rest-api")
 }
