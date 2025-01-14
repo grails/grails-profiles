@@ -1,0 +1,39 @@
+buildscript {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+        maven { url "https://repo.grails.org/grails/core" }
+        // mavenLocal()  // for local testing, do not commit uncommented
+    }
+    dependencies {
+        classpath "org.grails:grails-gradle-plugin:$grailsGradlePluginVersion"
+        classpath 'io.spring.gradle:dependency-management-plugin'
+    }
+}
+
+apply plugin: "org.grails.grails-profile"
+apply plugin: "io.spring.dependency-management"
+
+group 'org.grails.profiles'
+version project.projectVersion
+
+ext.mavenPublishUrl = 'https://repo.grails.org/grails/libs-snapshots-local'
+
+apply plugin: "org.grails.grails-profile-publish"
+grailsPublish {
+    githubSlug = 'grails-profiles/vue'
+    license = 'Apache-2.0'
+    title = "Vue.js Profile"
+    desc = "A profile for creating Grails applications with Vue.js"
+    developers = [zacharyklein:"Zachary Klein"]
+}
+
+repositories {
+    mavenCentral()
+    maven { url "https://repo.grails.org/grails/core" }
+    // mavenLocal()  // for local testing, do not commit uncommented
+}
+
+dependencies {
+    profileRuntimeOnly "org.grails.profiles:rest-api:$restApiProfileVersion"
+}
